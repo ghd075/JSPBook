@@ -12,20 +12,7 @@
     <title>ClassiGrids - Classified Ads and Listing Website Template.</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="./resources/assets/images/favicon.svg" />
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./resources/assets/css/LineIcons.2.0.css" />
-    <link rel="stylesheet" href="./resources/assets/css/animate.css" />
-    <link rel="stylesheet" href="./resources/assets/css/tiny-slider.css" />
-    <link rel="stylesheet" href="./resources/assets/css/glightbox.min.css" />
-    <link rel="stylesheet" href="./resources/assets/css/main.css" />
-
+    <%@ include file="/pageModule/headPart.jsp" %>
 </head>
 
 <body>
@@ -35,14 +22,8 @@
 		List<IndexVO> indexList = dao.getIndexList();
 	%>
 
-    <div class="preloader">
-        <div class="preloader-inner">
-            <div class="preloader-icon">
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
+    <%@ include file="/pageModule/head.jsp" %>
+
 
 	<section class="hero-area overlay">
 		<div class="container">
@@ -69,9 +50,9 @@
                     		for(int i = 0; i < indexList.size(); i++) {
                     			IndexVO index = indexList.get(i);
                     	%>
-                            <a href="category.html" class="single-cat">
+                            <a href="" class="single-cat">
                                 <div class="icon">
-                                    <img src="./resources/assets/images/categories/laptop.svg" alt="#">
+                                    <img src="${pageContext.request.contextPath }/resources/assets/images/categories/laptop.svg" alt="#">
                                 </div>
                                 <h3><%=index.getChapter() %></h3>
                                 <h5 class="total"><%=index.getSourceList().size() %></h5>
@@ -106,10 +87,10 @@
                         <!-- Start Single Grid -->
                         <div class="single-grid wow fadeInUp" data-wow-delay=".4s">
                             <div class="image">
-                                <a href="item-details.html" class="thumbnail"><img src="./resources/assets/images/items-grid/img5.jpg" alt="#"></a>
+                                <a href="item-details.html" class="thumbnail"><img src="${pageContext.request.contextPath }/resources/assets/images/items-grid/img5.jpg" alt="#"></a>
                                 <div class="author">
                                     <div class="author-image">
-                                        <a href="javascript:void(0)"><img src="./resources/assets/images/items-grid/author-5.jpg" alt="#">
+                                        <a href="javascript:void(0)"><img src="${pageContext.request.contextPath }/resources/assets/images/items-grid/author-5.jpg" alt="#">
                                             <span>DDIT</span></a>
                                     </div>
                                 </div>
@@ -145,61 +126,10 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="inner">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="content">
-                                <p class="copyright-text">대덕인재개발원 JSP</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <%@ include file="/pageModule/footer.jsp" %>
 
-    <a href="#" class="scroll-top btn-hover">
-        <i class="lni lni-chevron-up"></i>
-    </a>
+    <%@ include file="/pageModule/footerPart.jsp" %>
 
-    <script src="./resources/assets/js/bootstrap.min.js"></script>
-    <script src="./resources/assets/js/wow.min.js"></script>
-    <script src="./resources/assets/js/tiny-slider.js"></script>
-    <script src="./resources/assets/js/main.js"></script>
-    <script type="text/javascript">
-        tns({
-            container: '.category-slider',
-            items: 3,
-            slideBy: 'page',
-            autoplay: false,
-            mouseDrag: true,
-            gutter: 0,
-            nav: false,
-            controls: true,
-            controlsText: ['<i class="lni lni-chevron-left"></i>', '<i class="lni lni-chevron-right"></i>'],
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                540: {
-                    items: 2,
-                },
-                768: {
-                    items: 4,
-                },
-                992: {
-                    items: 5,
-                },
-                1170: {
-                    items: 6,
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>
