@@ -28,13 +28,13 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="breadcrumbs-content">
-                        <h1 class="page-title">JSP 개요</h1>
+                        <h1 class="page-title">내장객체</h1>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="/">INDEX</a></li>
-                        <li>CH01</li>
+                        <li>CH05</li>
                     </ul>
                 </div>
             </div>
@@ -46,7 +46,11 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="content-left wow fadeInLeft" data-wow-delay=".3s">
-                    
+                        <form action="request01_process.jsp" method="post">
+			                            아이디 : <input type="text" name="id"/><br/>
+			                            비밀번호 : <input type="text" name="pw"/><br/>
+                           <input type="submit" value="전송">
+                        </form>
                     </div>
                 </div>
             </div>

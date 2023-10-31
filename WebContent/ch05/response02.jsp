@@ -28,13 +28,13 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="breadcrumbs-content">
-                        <h1 class="page-title">JSP 개요</h1>
+                        <h1 class="page-title">내장객체</h1>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="/">INDEX</a></li>
-                        <li>CH01</li>
+                        <li>CH05</li>
                     </ul>
                 </div>
             </div>
@@ -46,7 +46,11 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="content-left wow fadeInLeft" data-wow-delay=".3s">
-                    
+                    	<%
+                    		// header 정보 중 , Refresh 헤더를 이용해 5초마다 페이지를 새로고침한다.
+                    		response.setIntHeader("Refresh", 5);
+                    	%>
+                    	<%= new java.util.Date() %>
                     </div>
                 </div>
             </div>

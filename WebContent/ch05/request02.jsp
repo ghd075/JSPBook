@@ -1,3 +1,4 @@
+<%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,13 +29,13 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="breadcrumbs-content">
-                        <h1 class="page-title">JSP 개요</h1>
+                        <h1 class="page-title">내장객체</h1>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="/">INDEX</a></li>
-                        <li>CH01</li>
+                        <li>CH05</li>
                     </ul>
                 </div>
             </div>
@@ -46,7 +47,29 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="content-left wow fadeInLeft" data-wow-delay=".3s">
-                    
+                    	<table class="table table-bordered">
+                    		<%
+                    			// 모든 헤더 이름을 가져오도록 request 내장 객체의 getHeaderNames() 메소드를 작성하고
+                    			// 이를 모두 저장하도록 Enumeration 객체 타입의 변수 en을 작성
+                    			Enumeration en = request.getHeaderNames();
+                    		
+                    			// Enumeration 객체 타입의 변수 en의 hasMoreElements() 메소드를 통해
+                    			// 저장된 헤더 이름이 있을 때까지 반복하도록 while문을 작성
+                    			while(en.hasMoreElements()) {
+                    				// 현재 헤더 이름을 가져오도록 Enumeration 객체 타입의 변수 en의 nextElement() 메소드를 작성함
+                    				String headerName = (String) en.nextElement();
+                    				// 설정된 헤더 이름의 값을 가져오도록 request 내장 객체의 getHeader() 메소드를 작성함
+                    				String headerValue = request.getHeader(headerName);
+                    		%>
+                    				<!-- 현재 헤더 이름과 값을 출력하도록 표현문 태그를 작성함 -->
+                    				<tr>
+                    					<td><%=headerName %></td>
+                    					<td><%=headerValue %></td>
+                    				</tr>
+                    		<%
+                    			}
+                    		%>
+                    	</table>
                     </div>
                 </div>
             </div>
