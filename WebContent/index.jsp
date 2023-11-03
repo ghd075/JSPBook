@@ -22,7 +22,7 @@
 		List<IndexVO> indexList = dao.getIndexList();
 	%>
 
-    <%@ include file="/pageModule/head.jsp" %>
+    <%@ include file="/pageModule/header.jsp" %>
 
 
 	<section class="hero-area overlay">
