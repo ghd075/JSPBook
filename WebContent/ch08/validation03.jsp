@@ -46,15 +46,20 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="content-left wow fadeInLeft" data-wow-delay=".3s">
-                    	<%
-                    		request.setCharacterEncoding("UTF-8");
+                    	<h3>Javascript 버전</h3>
+                    	<form name="loginForm" action="validation03_process.jsp">
+                    		아이디 : <input type="text" name="id" /><br/>
+                    		비밀번호 : <input type="text" name="pw" /><br/>
+                    		<input type="button" value="전송" onclick="CheckForm()">
+                    	</form>
+   
+                    	<h3>Jquery 버전</h3>
+                    	<form name="loginForm2" action="validation02_process.jsp" id="loginForm2">
+                    		아이디 : <input type="text" name="id2" id="id2" /><br/>
+                    		비밀번호 : <input type="text" name="pw2" id="pw2" /><br/>
+                    		<input type="button" value="전송" id="loginBtn">
+                    	</form>
                     	
-                    		String id = request.getParameter("id");
-                    		String pw = request.getParameter("pw");
-                    		
-                    		out.println("아이디 : " + id + "<br/>");
-                    		out.println("비밀번호 : " + pw + "<br/>");
-                    	%>
                     </div>
                 </div>
             </div>
@@ -66,22 +71,48 @@
     <%@ include file="/pageModule/footerPart.jsp" %>
     <script type="text/javascript">
     	// 자바스크립트 onsubmit 이벤트 처리
-    	function submitEvent() {
-    		console.log("Submit Event...!");
-    		alert("Submit Event...!");
+    	function CheckForm() {
+    		var form = document.loginForm;
     		
-    		var id = document.loginForm.id.value;
-    		var pw = document.loginForm.pw.value;
-    		
-    		if(id == "") {
-	    		alert("아이디가 누락되었습니다.");
+    		if(form.id.value.length < 4 || form.id.value.length > 12) {
+    			alert("아이디는 4 ~ 12 자 이내로 입력 가능합니다!");
+    			form.id.select();
     			return false;
     		}
-    		if(pw == "") {
-	    		alert("비밀번호가 누락되었습니다.");
+    		if(form.pw.value.length < 4) {
+    			alert("비밀번호는 4자 이상 입력해야 합니다!");
+    			form.pw.select();
     			return false;
     		}
+    		
+    		form.submit();
+    		
     	}
+    	
+    	// 제이쿼리를 통한 이벤트 처리
+    	$(function(){
+    		var loginBtn = $('#loginBtn');
+    		var loginForm2 = $('#loginForm2');
+    		
+    		loginBtn.on("click", function(){
+    			var id = $('#id2').val();
+    			var pw = $('#pw2').val();
+    			
+    			if(id.length < 4 || id.length > 12) {
+    				alert("아이디는 4 ~ 12자 이내로 입력 가능합니다!");
+    				$("#id2").focus();
+    				return false;
+    			}
+    			
+    			if(pw.length < 4 ) {
+    				alert("비밀번호는 4자 이상 입력 가능합니다!");
+    				$("#pw2").focus();
+    				return false;
+    			}
+    			
+    			loginForm2.submit();
+    		})
+    	});
     </script>
 </body>
 

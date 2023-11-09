@@ -8,20 +8,11 @@
     <title>쉽게 배우는 JSP 웹 프로그래밍</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <%@ include file="/pageModule/headPart.jsp" %>
+    <%@ include file="/pageModule/headPart.jsp" %>
 </head>
 
 <body>
-
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader-inner">
-            <div class="preloader-icon">
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
+    <%@ include file="/pageModule/header.jsp" %>
 
     <div class="breadcrumbs" style="padding-top:40px;">
         <div class="container">
@@ -47,14 +38,14 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="content-left wow fadeInLeft" data-wow-delay=".3s">
                     	<%
-                    		request.setCharacterEncoding("UTF-8");
-                    	
-                    		String id = request.getParameter("id");
-                    		String pw = request.getParameter("pw");
-                    		
-                    		out.println("아이디 : " + id + "<br/>");
-                    		out.println("비밀번호 : " + pw + "<br/>");
-                    	%>
+										request.setCharacterEncoding("UTF-8");
+									%>
+									<p>	퀘스트1 : <%=request.getParameter("quest1")%>
+									<p>	퀘스트2 :	<%=request.getParameter("quest2")%>
+									<p>	아이디 : <%=request.getParameter("mem_id")%>
+									<p>	비밀번호 : <%=request.getParameter("mem_pw")%>
+									<p>	이름 : <%=request.getParameter("mem_name")%>
+									<p>	전화번호 : <%=request.getParameter("mem_phone")%>
                     </div>
                 </div>
             </div>
@@ -64,25 +55,24 @@
     <%@ include file="/pageModule/footer.jsp" %>
 
     <%@ include file="/pageModule/footerPart.jsp" %>
-    <script type="text/javascript">
-    	// 자바스크립트 onsubmit 이벤트 처리
-    	function submitEvent() {
-    		console.log("Submit Event...!");
-    		alert("Submit Event...!");
-    		
-    		var id = document.loginForm.id.value;
-    		var pw = document.loginForm.pw.value;
-    		
-    		if(id == "") {
-	    		alert("아이디가 누락되었습니다.");
-    			return false;
-    		}
-    		if(pw == "") {
-	    		alert("비밀번호가 누락되었습니다.");
-    			return false;
-    		}
-    	}
-    </script>
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

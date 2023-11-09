@@ -8,18 +8,27 @@
     <title>쉽게 배우는 JSP 웹 프로그래밍</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <%@ include file="/pageModule/headPart.jsp" %>
+   <%@ include file="/pageModule/headPart.jsp" %>
 </head>
 
 <body>
-    <%@ include file="/pageModule/header.jsp" %>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
 
     <div class="breadcrumbs" style="padding-top:40px;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="breadcrumbs-content">
-                        <h1 class="page-title">유효성검사</h1>
+                        <h1 class="page-title">유효성 검사</h1>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
@@ -38,18 +47,19 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="content-left wow fadeInLeft" data-wow-delay=".3s">
                     	<h3>Javascript 버전</h3>
-						<form name="loginForm" action="process.jsp">
-							아이디 : <input type="text" name="id"/><br/>
-							비밀번호 : <input type="text" name="pw"/><br/>
-							<input type="button" value="전송" onclick="CheckForm()"/>
-						</form>
-						
+                    	<form name="loginForm" action="process.jsp">
+                    		아이디 : <input type="text" name="id" /><br/>
+                    		비밀번호 : <input type="text" name="pw" /><br/>
+                    		<input type="button" value="전송" onclick="CheckForm()">
+                    	</form>
+   
                     	<h3>Jquery 버전</h3>
-						<form name="loginForm2" id="loginForm2">
-							아이디 : <input type="text" name="id2" id="id2"/><br/>
-							비밀번호 : <input type="text" name="pw2" id="pw2"/><br/>
-							<input type="button" value="전송" id="loginBtn"/>
-						</form>
+                    	<form name="loginForm2" action="process.jsp" id="loginForm2">
+                    		아이디 : <input type="text" name="id2" id="id2" /><br/>
+                    		비밀번호 : <input type="text" name="pw2" id="pw2" /><br/>
+                    		<input type="button" value="전송" id="loginBtn">
+                    	</form>
+                    	
                     </div>
                 </div>
             </div>
@@ -59,36 +69,26 @@
     <%@ include file="/pageModule/footer.jsp" %>
 
     <%@ include file="/pageModule/footerPart.jsp" %>
+    <script type="text/javascript">
+    	// 자바스크립트 onsubmit 이벤트 처리
+    	function CheckForm() {
+    		alert("아이디 : " + document.loginForm.id.value + "\n" +
+    				"비밀번호 : " + document.loginForm.pw.value	
+    		);
+    		
+    	}
+    	// 제이쿼리를 통한 이벤트 처리
+    	$(function(){
+    		var loginBtn = $('#loginBtn');
+    		
+    		loginBtn.on("click", function(){
+        		alert("아이디 : " + $('#id2').val() + "\n" +
+        				"비밀번호 : " + $('#pw2').val()	
+        		);
+    		})
+    		
+    	});
+    </script>
 </body>
-<script type="text/javascript">
-function CheckForm(){
-	alert("아이디 : " + document.loginForm.id.value + "\n" + 
-			"비밀번호 : " + document.loginForm.pw.value);
-}
 
-$(function(){
-	var loginBtn = $("#loginBtn");
-	
-	loginBtn.on("click", function(){
-		alert("아이디 : " + $("#id2").val() + "\n" + 
-				"비밀번호 : " + $("#pw2").val());
-	}); 
-});
-</script>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

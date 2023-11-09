@@ -47,7 +47,7 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="content-left wow fadeInLeft" data-wow-delay=".3s">
                     	<h3>Javascript 버전</h3>
-                    	<form name="loginForm" action="validation02_process.jsp">
+                    	<form name="loginForm" action="validation04_process.jsp">
                     		아이디 : <input type="text" name="id" /><br/>
                     		비밀번호 : <input type="text" name="pw" /><br/>
                     		<input type="button" value="전송" onclick="CheckForm()">
@@ -74,46 +74,55 @@
     	function CheckForm() {
     		var form = document.loginForm;
     		
-    		// 아이디가 입력되었는지 검사한다.
-    		// 아이디가 입력되지 않으면 오류 메시지를 출력하고 해당 입력 항목에 커서가 놓인다.
-    		if(form.id.value == "") {
-    			alert("아이디를 입력해주세요.");
-    			form.id.focus();
+    		for(i = 0; i < form.id.value.length; i++) {
+    			var ch = form.id.value.charAt(i);
+    			
+    			// 0: 52, 9: 61
+    			// A: 65, Z: 90
+    			// a: 97, z: 122
+    			// if 조건은 모든 조건이 참일 때 동작
+    			// || 연산 : true, false일 때 true이다. (즉, 하나라도 true면 true)
+    			// && 연산 : true, false일 때 false이다. (즉, 모두 true면 true)
+    			if((ch < 'a' || ch > 'z') && (ch > 'A' || ch < 'Z') && (ch > '0' || ch < '9')) {
+    				alert("아이디는 영문 소문자로만 입력 가능합니다!");
+    				form.id.select();
+    				return false;
+    			}
+    		}
+    		
+    		if(isNaN(form.pw.value)) {
+    			alert("비밀번호는 숫자로만 입력 가능합니다!");
+    			form.pw.select();
     			return false;
     		}
     		
-    		// 비밀번호가 입력되었는지 검사한다.
-    		// 비밀번호가 입력되지 않으면 오류 메시지를 출력하고 해당 입력 항목에 커서가 놓인다.
-    		if(form.pw.value == "") {
-    			alert("비밀번호를 입력해주세요.");
-    			form.pw.focus();
-    			return false;
-    		}
-    		
-    		// 폼 페이지에서 입력한 데이터 값을 서버로 전송합니다.
     		form.submit();
-    		
     	}
+    	
     	// 제이쿼리를 통한 이벤트 처리
     	$(function(){
-    		var loginForm2 = $('#loginForm2');
     		var loginBtn = $('#loginBtn');
+    		var loginForm2 = $('#loginForm2');
     		
     		loginBtn.on("click", function(){
     			var id = $('#id2').val();
     			var pw = $('#pw2').val();
     			
-    			if(id == null || id == "") {
-        			alert("아이디를 입력해주세요.");
-        			$('#id2').focus();
+        		for(i = 0; i < id.length; i++) {
+        			var ch = id.charAt(i);
+        			
+        			if((ch < 'a' || ch > 'z') && (ch > 'A' || ch < 'Z') && (ch > '0' || ch < '9')) {
+        				alert("아이디는 영문 소문자로만 입력 가능합니다!");
+        				$('#id2').select();
+        				return false;
+        			}
+        		}
+        		
+        		if(isNaN(pw)) {
+        			alert("비밀번호는 숫자로만 입력 가능합니다!");
+        			$('#pw2').select();
         			return false;
-    			}
-    			
-    			if(pw == null || pw == "") {
-        			alert("비밀번호를 입력해주세요.");
-        			$('#pw2').focus();
-        			return false;
-    			}
+        		}
     			
     			loginForm2.submit();
     		})

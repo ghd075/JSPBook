@@ -51,10 +51,17 @@
                     	
                     		String id = request.getParameter("id");
                     		String pw = request.getParameter("pw");
-                    		
-                    		out.println("아이디 : " + id + "<br/>");
-                    		out.println("비밀번호 : " + pw + "<br/>");
+                    		String name = request.getParameter("name");
+                    		String phone1 = request.getParameter("phone1");
+                    		String phone2 = request.getParameter("phone2");
+                    		String phone3 = request.getParameter("phone3");
+                    		String email = request.getParameter("email");
                     	%>
+                    	<p>아이디 : <%=id %></p>
+                    	<p>비밀번호 : <%=pw %></p>
+                    	<p>이름 : <%=name %></p>
+                    	<p>연락처 : <%=phone1 %>-<%=phone2 %>-<%=phone3 %></p>
+                    	<p>이메일 : <%=email %></p>
                     </div>
                 </div>
             </div>
