@@ -4,4 +4,72 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <!-- ch10 기본 인증 처리 방법으로 보안 처리하기 -->
+<!--   <security-role>
+  	<role-name>role1</role-name>
+  </security-role>
+  <security-constraint>
+  	<web-resource-collection>
+  		<web-resource-name>JSPBookProject</web-resource-name>
+  		<url-pattern>/ch10/security01.jsp</url-pattern>
+  		<http-method>GET</http-method>
+  	</web-resource-collection>
+  	<auth-constraint>
+  		<description></description>
+  		<role-name>role1</role-name>
+  	</auth-constraint>
+  </security-constraint>
+  <login-config>
+  	<auth-method>BASIC</auth-method>
+  </login-config> -->
+  <!-- ch10 기본 인증 처리 방법으로 보안 처리하기 End -->
+  
+  <!-- ch10 폼 기반 인증 처리 방법으로 보안 처리하기 -->
+<!--   <security-role>
+  	<role-name>role1</role-name>
+  </security-role>
+  <security-constraint>
+  	<web-resource-collection>
+  		<web-resource-name>JSPBookProject</web-resource-name>
+  		<url-pattern>/ch10/security01.jsp</url-pattern>
+  		<http-method>GET</http-method>
+  	</web-resource-collection>
+  	<auth-constraint>
+  		<description></description>
+  		<role-name>role1</role-name>
+  	</auth-constraint>
+  </security-constraint>
+  <login-config>
+  	<auth-method>FORM</auth-method>
+  	<form-login-config>
+  		<form-login-page>/ch10/login.jsp</form-login-page>
+  		<form-error-page>/ch10/login_failed.jsp</form-error-page>
+  	</form-login-config>
+  </login-config>   -->
+  <!-- ch10 폼 기반 인증 처리 방법으로 보안 처리하기 End -->  
+  
+  <!-- ch10 프로그래밍적 시큐리티 처리 --> 
+  <security-role>
+  	<role-name>role1</role-name>
+  </security-role>
+  <security-constraint>
+  	<web-resource-collection>
+  		<web-resource-name>JSPBookProject</web-resource-name>
+  		<url-pattern>/ch10/security02.jsp</url-pattern>
+  		<http-method>GET</http-method>
+  	</web-resource-collection>
+  	<auth-constraint>
+  		<description></description>
+  		<role-name>role1</role-name>
+  	</auth-constraint>
+  </security-constraint>
+  <login-config>
+  	<auth-method>FORM</auth-method>
+  	<form-login-config>
+  		<form-login-page>/ch10/login.jsp</form-login-page>
+  		<form-error-page>/ch10/login_failed.jsp</form-error-page>
+  	</form-login-config>
+  </login-config>     
+  <!-- ch10 프로그래밍적 시큐리티 처리 End -->  
+  
 </web-app>
