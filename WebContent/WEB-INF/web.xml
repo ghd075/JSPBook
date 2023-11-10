@@ -49,7 +49,7 @@
   <!-- ch10 폼 기반 인증 처리 방법으로 보안 처리하기 End -->  
   
   <!-- ch10 프로그래밍적 시큐리티 처리 --> 
-  <security-role>
+<!--   <security-role>
   	<role-name>role1</role-name>
   </security-role>
   <security-constraint>
@@ -69,7 +69,16 @@
   		<form-login-page>/ch10/login.jsp</form-login-page>
   		<form-error-page>/ch10/login_failed.jsp</form-error-page>
   	</form-login-config>
-  </login-config>     
+  </login-config>      -->
   <!-- ch10 프로그래밍적 시큐리티 처리 End -->  
+
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/ch11/errorCode_error.jsp</location>
+  </error-page>
   
+  <error-page>
+  	<exception-type>java.lang.Exception</exception-type>
+  	<location>/ch11/exceptionType_error.jsp</location>
+  </error-page>
 </web-app>
