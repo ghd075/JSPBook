@@ -1,3 +1,5 @@
+<%@page import="kr.or.ddit.ch07.MemberVO"%>
+<%@page import="kr.or.ddit.ch07.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
@@ -43,6 +45,32 @@
 						> 로그인 성공 시, menu.jsp로 이동합니다.
 						> 로그인 실패 시, login.jsp로 이동합니다.
 					 -->
+						 <%
+						 	request.setCharacterEncoding("UTF-8");
+						 	String id = request.getParameter("id");
+						 	String pw = request.getParameter("pw");
+						 	
+						 	String ctx = request.getContextPath();
+						 	
+						 	MemberDAO dao = MemberDAO.getInstance();
+						 	
+						 	int check = dao.loginCheck(id, pw);
+						 	
+					        if(check == 1)    // 로그인 성공
+					        { 
+					            // 세션에 사용자 ID 저장
+					            session.setAttribute("userId", id);	
+					        	request.getRequestDispatcher("menu.jsp").forward(request, response);
+					        }
+					        else if(check == 0) // 비밀번호가 틀릴경우
+					        {
+					        	response.sendRedirect(ctx + "/ch11/test/login_failed.jsp?failed=0");
+					        }
+					        else    // 아이디가 틀릴경우
+					        {
+					        	response.sendRedirect(ctx + "/ch11/test/login_failed.jsp?failed=-1");
+					        }
+						 %>
                     </div>
                 </div>
             </div>

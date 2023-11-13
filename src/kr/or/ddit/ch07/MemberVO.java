@@ -7,6 +7,13 @@ public class MemberVO{
 	private String mem_sex;
 	private String filename;
 	
+	public MemberVO() { }
+	
+	public MemberVO(String mem_id, String mem_pw) {
+		this.mem_id = mem_id;
+		this.mem_pw = mem_pw;
+	}
+	
 	public String getMem_id() {
 		return mem_id;
 	}

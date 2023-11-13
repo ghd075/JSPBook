@@ -47,6 +47,19 @@
 						2. 게시판 버튼을 클릭 시, 게시판 페이지(boardList.jsp)로 이동합니다.
 						3. 자료실 버튼을 클릭 시, 자료실 페이지(dropbox.jsp)로 이동합니다.  
 					 -->
+					 	<h4>메뉴를 선택해주세요.</h4>
+						<br/>
+					 	<div class="btn-group btn-group-justified">
+						 	<ul class="list-group" >
+							  <li class="list-group-item" style="border: none;">1. 
+								<a href="boardList.jsp" class="btn btn-primary">게시판</a>
+							  </li>
+							  <li class="list-group-item" style="border: none;">2.
+								<a href="dropbox.jsp" class="btn btn-info">자료실 페이지</a>
+							  </li>
+							</ul>
+
+						</div>
                     </div>
                 </div>
             </div>

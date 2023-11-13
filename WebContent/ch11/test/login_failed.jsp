@@ -43,6 +43,18 @@
 							인증에 실패하였습니다!
 							[ 로그인 페이지 이동  ]
 						-->
+						<%
+							String failed = request.getParameter("failed");
+							String ctx = request.getContextPath();
+							
+							if (failed != null && failed.equals("0")) {
+								response.sendRedirect(ctx + "/ch11/test/login.jsp?error=0");
+							} else if (failed != null && failed.equals("-1")) {
+								response.sendRedirect(ctx + "/ch11/test/login.jsp?error=-1");
+							}
+						%>
+                    	<h3>인증 실패했습니다.</h3>
+                    	<a href="loginSecurity.jsp" class="btn btn-primary">로그인 페이지 이동</a>
                     </div>
                 </div>
             </div>

@@ -71,7 +71,27 @@
   	</form-login-config>
   </login-config>      -->
   <!-- ch10 프로그래밍적 시큐리티 처리 End -->  
-
+  <security-role>
+  	<role-name>admin</role-name>
+  </security-role>
+  <security-constraint>
+  	<web-resource-collection>
+  		<web-resource-name>JSPBookProject</web-resource-name>
+  		<url-pattern>/ch11/test/boardForm.jsp</url-pattern>
+  		<http-method>GET</http-method>
+  	</web-resource-collection>
+  	<auth-constraint>
+		<role-name>admin</role-name>
+  	</auth-constraint>
+  </security-constraint>  
+  <login-config>
+  	<auth-method>FORM</auth-method>
+  	<form-login-config>
+  		<form-login-page>/ch11/test/loginSecurity.jsp</form-login-page>
+  		<form-error-page>/ch11/test/login_failed.jsp</form-error-page>
+  	</form-login-config>
+  </login-config> 
+  
   <error-page>
   	<error-code>500</error-code>
   	<location>/ch11/errorCode_error.jsp</location>

@@ -43,6 +43,18 @@
 							비밀번호 : _________
 							[ 로그인  ]
 						 -->
+						<form class="form-signin" action="j_security_check" method="post">
+							<div class="form-group mt-2">
+								<label for="inputUserName" class="sr-only">User Name</label> 
+								<input	type="text" class="form-control" placeholder="ID" name='j_username' required autofocus>
+							</div>
+							<div class="form-group mt-2">
+								<label for="inputPassword" class="sr-only">Password</label> 
+								<input 	type="password" class="form-control" placeholder="Password" name='j_password' required>
+							</div>
+							<br/><br/>
+							<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
+						</form>
                     </div>
                 </div>
             </div>
