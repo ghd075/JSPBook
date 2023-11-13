@@ -4,6 +4,7 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
   <!-- ch10 기본 인증 처리 방법으로 보안 처리하기 -->
 <!--   <security-role>
   	<role-name>role1</role-name>
@@ -45,7 +46,7 @@
   		<form-login-page>/ch10/login.jsp</form-login-page>
   		<form-error-page>/ch10/login_failed.jsp</form-error-page>
   	</form-login-config>
-  </login-config>   -->
+  </login-config>  --> 
   <!-- ch10 폼 기반 인증 처리 방법으로 보안 처리하기 End -->  
   
   <!-- ch10 프로그래밍적 시큐리티 처리 --> 
@@ -69,9 +70,9 @@
   		<form-login-page>/ch10/login.jsp</form-login-page>
   		<form-error-page>/ch10/login_failed.jsp</form-error-page>
   	</form-login-config>
-  </login-config>      -->
-  <!-- ch10 프로그래밍적 시큐리티 처리 End -->  
-  <security-role>
+  </login-config>   -->   
+  <!-- ch10 프로그래밍적 시큐리티 처리 End -->
+<!--   <security-role>
   	<role-name>admin</role-name>
   </security-role>
   <security-constraint>
@@ -90,7 +91,7 @@
   		<form-login-page>/ch11/test/loginSecurity.jsp</form-login-page>
   		<form-error-page>/ch11/test/login_failed.jsp</form-error-page>
   	</form-login-config>
-  </login-config> 
+  </login-config>   -->
   
   <error-page>
   	<error-code>500</error-code>
@@ -101,4 +102,43 @@
   	<exception-type>java.lang.Exception</exception-type>
   	<location>/ch11/exceptionType_error.jsp</location>
   </error-page>
+  
+  <filter>
+  	<filter-name>Filter01</filter-name>
+  	<filter-class>kr.or.ddit.ch12.AuthenFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>Filter01</filter-name>
+  	<url-pattern>/ch12/filter01_process.jsp</url-pattern>
+  </filter-mapping>
+
+  <filter>
+  	<filter-name>Filter02</filter-name>
+  	<filter-class>kr.or.ddit.ch12.InitParamFilter</filter-class>
+  	<init-param>
+  		<param-name>param1</param-name>
+  		<param-value>admin</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>param2</param-name>
+  		<param-value>1234</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>Filter02</filter-name>
+  	<url-pattern>/ch12/filter02_process.jsp</url-pattern>
+  </filter-mapping>  
+ 
+  <filter>
+  	<filter-name>Filter02_1</filter-name>
+  	<filter-class>kr.or.ddit.ch12.LogFileFilter</filter-class>
+  	<init-param>
+  		<param-name>filename</param-name>
+  		<param-value>C:\\logs\\monitor.log</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>Filter02_1</filter-name>
+  	<url-pattern>/ch12/filter02_process.jsp</url-pattern>
+  </filter-mapping>  
 </web-app>
